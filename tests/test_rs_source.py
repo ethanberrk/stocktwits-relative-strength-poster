@@ -6,6 +6,8 @@ def test_exchange_prefix_covers_stocktwits_strings():
     assert _EXCHANGE_PREFIX["NASDAQ"] == "NASDAQ"
     assert _EXCHANGE_PREFIX["NYSEAmerican"] == "AMEX"
     assert _EXCHANGE_PREFIX["AMEX"] == "AMEX"
+    assert _EXCHANGE_PREFIX["NYSEArca"] == "AMEX"
+    assert _EXCHANGE_PREFIX["BATS"] == "BATS"
 
 
 def test_build_candidate_happy_path():
@@ -47,6 +49,12 @@ def test_build_candidate_drops_missing_marketcap():
                             {"watchlist_count": 5, "exchange": "NYSE"}) is None
 
 
+def test_build_candidate_drops_missing_price():
+    quote = {"marketCap": 2e9, "fiftyTwoWeekHigh": 10.0, "quoteType": "EQUITY"}
+    assert _build_candidate("NOPRICE", "No Price", quote,
+                            {"watchlist_count": 5, "exchange": "NYSE"}) is None
+
+
 def test_fetch_candidates_wires_stages(monkeypatch):
     src = RSSource()
     monkeypatch.setattr(src, "_wsj_universe",
@@ -68,7 +76,8 @@ def test_fetch_candidates_wires_stages(monkeypatch):
 
 def test_fetch_candidates_raises_on_empty_universe(monkeypatch):
     import pytest
+    from src.source.base import SourceError
     src = RSSource()
     monkeypatch.setattr(src, "_wsj_universe", lambda: [])
-    with pytest.raises(Exception):  # SourceError
+    with pytest.raises(SourceError):
         src.fetch_candidates()
