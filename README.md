@@ -34,6 +34,11 @@ WSJ new-52wk-highs feed → Yahoo v7 bulk quotes → Stocktwits watchers
 ## Ops
 
 - Cron: `.github/workflows/tick.yml`, every 30 min during market hours.
+- Backup trigger: GitHub's scheduled cron is unreliable, so a cron-job.org job
+  fires the workflow via `workflow_dispatch` as a backstop — setup in
+  [docs/cron-job-backup.md](docs/cron-job-backup.md); `scripts/trigger-tick.sh`
+  is the same call for manual/any-scheduler use. Safe against double-ticks (the
+  workflow's `concurrency` group serializes overlapping runs).
 - Secrets (this repo → Settings → Secrets → Actions):
   - `CHART_IMG_API_KEY` — required now (preview phase).
   - `STOCKTWITS_ACCESS_TOKEN` — **the dedicated RS account's token** (NOT the
