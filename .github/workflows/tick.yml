@@ -27,14 +27,22 @@ jobs:
         env:
           CHART_IMG_API_KEY: ${{ secrets.CHART_IMG_API_KEY }}
           # The DEDICATED relative-strength Stocktwits account's token —
-          # distinct from the 52wk-poster's account.
+          # distinct from the 52wk-poster's account. Only consumed once we go
+          # live (below); the preview phase does not need it.
           STOCKTWITS_ACCESS_TOKEN: ${{ secrets.STOCKTWITS_ACCESS_TOKEN }}
           # Launch ramp: 1 post/tick (a gentle 30-min trickle that dodges the
           # duplicate filter), 12/day. Remove these two to restore 2/20 defaults.
           MAX_PER_TICK: "1"
           MAX_PER_DAY: "12"
           PYTHONUNBUFFERED: "1"
-        run: python run.py --sync-state --live
+        # PREVIEW PHASE (current): dry-run. Fetches the real 1-yr charts and
+        # writes what *would* be posted to output/YYYY-MM-DD/ (chart PNG + post
+        # text), committed below — review a few days of samples before going
+        # live. Needs only CHART_IMG_API_KEY; no Stocktwits token required.
+        #
+        # GO LIVE: change the line below to `python run.py --sync-state --live`
+        # and set the STOCKTWITS_ACCESS_TOKEN secret (dedicated RS account).
+        run: python run.py
       - name: Commit state + output
         if: always()
         run: |
@@ -42,8 +50,8 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add state output
           if git diff --cached --quiet; then
-            echo "nothing posted this tick"; exit 0
+            echo "nothing to record this tick"; exit 0
           fi
-          git commit -m "state: tick $(date -u +'%Y-%m-%dT%H:%M')"
+          git commit -m "tick: $(date -u +'%Y-%m-%dT%H:%M') (preview)"
           git pull --rebase origin main
           git push

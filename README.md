@@ -6,6 +6,13 @@ framed as *undiscovered breakouts*. Every 30 minutes the fewest-watched
 eligible names (max 2/tick, 20/day, never on consecutive trading days) get a
 `$TICKER undiscovered breakout with {N} watchers` post.
 
+**Phase 1 — preview (current):** the cron runs dry-run. Each tick fetches the
+real 1-year chart and writes what *would* be posted to `output/YYYY-MM-DD/`
+(chart PNG + post text) and commits it — review a few days of samples before
+going live. Needs only `CHART_IMG_API_KEY`.
+**Phase 2 — live:** flip the workflow's run line to `python run.py --sync-state
+--live` and set `STOCKTWITS_ACCESS_TOKEN` (the dedicated RS account).
+
 Combines two prior projects: the **relative-strength** data pipeline (WSJ new
 highs → Yahoo enrichment → Stocktwits watchers → rank ascending by watchers)
 and the **52wk-poster** chart+publish engine (chart-img PNG → Stocktwits API,
@@ -28,9 +35,9 @@ WSJ new-52wk-highs feed → Yahoo v7 bulk quotes → Stocktwits watchers
 
 - Cron: `.github/workflows/tick.yml`, every 30 min during market hours.
 - Secrets (this repo → Settings → Secrets → Actions):
-  - `CHART_IMG_API_KEY`
+  - `CHART_IMG_API_KEY` — required now (preview phase).
   - `STOCKTWITS_ACCESS_TOKEN` — **the dedicated RS account's token** (NOT the
-    52wk-poster's account).
+    52wk-poster's account). Required only for Phase 2 (live).
 - Dry-run by default; `--live` requires `STOCKTWITS_ACCESS_TOKEN`.
 - Spec + plan: `docs/superpowers/`.
 
