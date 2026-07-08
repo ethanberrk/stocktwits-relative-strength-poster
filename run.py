@@ -28,13 +28,20 @@ def tick(source: HighsSource, publisher: Publisher, chart_fetch,
     candidates = source.fetch_candidates()
     select.validate(candidates)
     posted = state.load_posted(state_path)
-    picks = select.pick(candidates, posted, today)
-    print(f"{len(candidates)} on today's 52wk-high list; posting {len(picks)}")
+    ranked = select.ranked_eligible(candidates, posted, today)
+    slots = select.slot_count(posted, today)
+    print(f"{len(candidates)} on today's 52wk-high list; "
+          f"{len(ranked)} eligible, up to {slots} slots this tick")
 
-    # Gather everything fallible BEFORE recording intent: a name that fails
-    # its symbol check or chart fetch is skipped and stays eligible.
+    # Walk the ranked list (fewest watchers first), filling up to `slots`
+    # posts. A name that fails its symbol check or chart fetch is skipped and
+    # the NEXT eligible name is tried — so an un-chartable fewest-watched name
+    # can't starve the tick. Everything fallible happens BEFORE recording
+    # intent; a skipped name stays eligible for a later tick.
     ready = []
-    for c in picks:
+    for c in ranked:
+        if len(ready) >= slots:
+            break
         if not symbol_check(c):
             print(f"stocktwits symbol check failed, skipping {c.ticker}")
             continue

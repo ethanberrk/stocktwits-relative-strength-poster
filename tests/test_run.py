@@ -54,3 +54,23 @@ def test_build_publisher_live_without_token_exits(monkeypatch, tmp_path):
     monkeypatch.delenv("STOCKTWITS_ACCESS_TOKEN", raising=False)
     with pytest.raises(SystemExit):
         run.build_publisher(live=True, out_dir=tmp_path, today=date(2026, 7, 8))
+
+
+def test_tick_backfills_when_top_pick_chart_fails(tmp_path, monkeypatch):
+    import config
+    from src.chart import ChartError
+    monkeypatch.setattr(config, "MAX_PER_TICK", 1)
+    monkeypatch.setattr(config, "MAX_PER_DAY", 20)
+    sp = tmp_path / "posted.json"
+    pub = FakePublisher()
+    now = datetime(2026, 7, 8, 14, 0, tzinfo=timezone.utc)  # 10:00 ET Wed
+
+    def chart_fetch(c):
+        if c.ticker == "LOW":          # fewest-watched name can't be charted
+            raise ChartError("no chart for LOW")
+        return b"PNG"
+
+    done = run.tick(FakeSource([_c("LOW", 3), _c("MID", 50)]), pub,
+                    chart_fetch=chart_fetch, state_path=sp, now_utc=now)
+    assert done == ["MID"]  # backfilled past the un-chartable fewest-watched name
+    assert pub.posted == [("MID", "$MID undiscovered breakout with 50 watchers")]
