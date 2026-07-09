@@ -44,7 +44,9 @@ jobs:
         # and set the STOCKTWITS_ACCESS_TOKEN secret (dedicated RS account).
         run: python run.py
       - name: Commit state + output
-        if: always()
+        # main only: the rebase/push flow assumes the cron branch; a manual
+        # dispatch on a feature branch (e.g. testing a PR) must never push.
+        if: always() && github.ref == 'refs/heads/main'
         run: |
           git config user.name "rs-poster-bot"
           git config user.email "actions@users.noreply.github.com"
