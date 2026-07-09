@@ -25,7 +25,6 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Run tick
         env:
-          CHART_IMG_API_KEY: ${{ secrets.CHART_IMG_API_KEY }}
           # The DEDICATED relative-strength Stocktwits account's token —
           # distinct from the 52wk-poster's account. Only consumed once we go
           # live (below); the preview phase does not need it.
@@ -35,10 +34,11 @@ jobs:
           MAX_PER_TICK: "1"
           MAX_PER_DAY: "12"
           PYTHONUNBUFFERED: "1"
-        # PREVIEW PHASE (current): dry-run. Fetches the real 1-yr charts and
-        # writes what *would* be posted to output/YYYY-MM-DD/ (chart PNG + post
-        # text), committed below — review a few days of samples before going
-        # live. Needs only CHART_IMG_API_KEY; no Stocktwits token required.
+        # PREVIEW PHASE (current): dry-run. Renders the 1-yr charts in-process
+        # (matplotlib + stockanalysis.com history — keyless) and writes what
+        # *would* be posted to output/YYYY-MM-DD/ (chart PNG + post text),
+        # committed below — review a few days of samples before going live.
+        # No secrets required at all in this phase.
         #
         # GO LIVE: change the line below to `python run.py --sync-state --live`
         # and set the STOCKTWITS_ACCESS_TOKEN secret (dedicated RS account).
