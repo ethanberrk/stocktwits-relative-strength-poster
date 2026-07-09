@@ -81,3 +81,100 @@ def test_fetch_candidates_raises_on_empty_universe(monkeypatch):
     monkeypatch.setattr(src, "_wsj_universe", lambda: [])
     with pytest.raises(SourceError):
         src.fetch_candidates()
+
+
+# --- stockanalysis.com fallback quote stage ---
+
+def _sa_quote_payload(price=42.37, cp=13.08, h52=42.67):
+    return {"data": {"p": price, "cp": cp, "h52": h52, "o": 38.33,
+                     "h": 42.67, "l": 38.33}}
+
+
+def _sa_page_payload(mcap="5.38B"):
+    # SvelteKit __data.json shape: objects map keys to indices into `data`.
+    return {"nodes": [None, {"type": "data",
+                             "data": [{"marketCap": 1}, mcap]}]}
+
+
+def test_parse_abbrev_number_handles_suffixes():
+    from src.source.rs_source import _parse_abbrev_number
+    assert _parse_abbrev_number("5.38B") == 5.38e9
+    assert _parse_abbrev_number("950M") == 950e6
+    assert _parse_abbrev_number("1.2T") == 1.2e12
+    assert _parse_abbrev_number(2_000_000_000) == 2e9
+    assert _parse_abbrev_number("n/a") is None
+    assert _parse_abbrev_number(None) is None
+
+
+def test_sa_quotes_parses_quote_and_mcap_payloads(monkeypatch):
+    import config
+    from src.source import rs_source
+
+    def fake_get_json(url, **kw):
+        if url == config.SA_QUOTE_URL.format(ticker="AAMI"):
+            return _sa_quote_payload()
+        if url == config.SA_PAGE_DATA_URL.format(ticker_lower="aami"):
+            return _sa_page_payload("5.38B")
+        raise AssertionError(f"unexpected url {url}")
+
+    monkeypatch.setattr(rs_source, "get_json", fake_get_json)
+    out = RSSource()._sa_quotes(["AAMI"])
+    q = out["AAMI"]
+    assert q["marketCap"] == 5.38e9
+    assert q["regularMarketPrice"] == 42.37
+    assert q["regularMarketChangePercent"] == 13.08
+    assert q["fiftyTwoWeekHigh"] == 42.67
+
+
+def test_sa_quotes_drops_ticker_when_mcap_missing(monkeypatch):
+    import config
+    from src.source import rs_source
+
+    def fake_get_json(url, **kw):
+        if "api/quotes" in url:
+            return _sa_quote_payload()
+        return {"nodes": []}  # no marketCap anywhere
+
+    monkeypatch.setattr(rs_source, "get_json", fake_get_json)
+    assert RSSource()._sa_quotes(["AAMI"]) == {}
+
+
+def test_fetch_candidates_falls_back_to_stockanalysis_when_yahoo_empty(monkeypatch):
+    src = RSSource()
+    monkeypatch.setattr(src, "_wsj_universe", lambda: [("AAMI", "Acadian Inc.")])
+    monkeypatch.setattr(src, "_yahoo_quotes", lambda tks: {})
+    monkeypatch.setattr(src, "_sa_quotes", lambda tks: {
+        "AAMI": {"marketCap": 3e9, "regularMarketPrice": 85.0,
+                 "regularMarketChangePercent": 3.2, "fiftyTwoWeekHigh": 85.1,
+                 "quoteType": "EQUITY"}})
+    monkeypatch.setattr(src, "_watchers", lambda tks: {
+        "AAMI": {"watchlist_count": 15, "exchange": "NYSE"}})
+    cands = src.fetch_candidates()
+    assert [c.ticker for c in cands] == ["AAMI"]
+    assert cands[0].market_cap == 3e9
+
+
+def test_fetch_candidates_skips_fallback_when_yahoo_works(monkeypatch):
+    src = RSSource()
+    monkeypatch.setattr(src, "_wsj_universe", lambda: [("AAMI", "Acadian Inc.")])
+    monkeypatch.setattr(src, "_yahoo_quotes", lambda tks: {
+        "AAMI": {"marketCap": 3e9, "regularMarketPrice": 85.0,
+                 "regularMarketChangePercent": 3.2, "fiftyTwoWeekHigh": 85.1,
+                 "quoteType": "EQUITY"}})
+    def boom(tks):
+        raise AssertionError("_sa_quotes must not be called when yahoo works")
+    monkeypatch.setattr(src, "_sa_quotes", boom)
+    monkeypatch.setattr(src, "_watchers", lambda tks: {
+        "AAMI": {"watchlist_count": 15, "exchange": "NYSE"}})
+    assert [c.ticker for c in src.fetch_candidates()] == ["AAMI"]
+
+
+def test_fetch_candidates_raises_when_all_quote_sources_empty(monkeypatch):
+    import pytest
+    from src.source.base import SourceError
+    src = RSSource()
+    monkeypatch.setattr(src, "_wsj_universe", lambda: [("AAMI", "Acadian Inc.")])
+    monkeypatch.setattr(src, "_yahoo_quotes", lambda tks: {})
+    monkeypatch.setattr(src, "_sa_quotes", lambda tks: {})
+    with pytest.raises(SourceError, match="quote"):
+        src.fetch_candidates()

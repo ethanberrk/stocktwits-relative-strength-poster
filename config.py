@@ -12,9 +12,18 @@ MARKET_TZ = "America/New_York"
 MARKET_OPEN = (9, 30)                   # ET
 MARKET_CLOSE = (16, 0)                  # ET
 
-# v2 (POST + JSON body): the only version exposing `session`, pinned to
-# "regular" so a chart captured at the open never shows a pre-market line.
-CHART_IMG_URL = "https://api.chart-img.com/v2/tradingview/advanced-chart"
+# Charts are rendered in-process (src/chart.py, matplotlib) from
+# stockanalysis.com daily history — no chart API or key involved.
+CHART_WIDTH = 800
+CHART_HEIGHT = 450
+
+# stockanalysis.com: keyless quote/market-cap/history source. Primary for
+# charts; fallback for the quote stage when Yahoo rate-limits (it 429s
+# datacenter IPs, which silently zeroed out every candidate on 2026-07-09).
+SA_QUOTE_URL = "https://stockanalysis.com/api/quotes/s/{ticker}"
+SA_PAGE_DATA_URL = "https://stockanalysis.com/stocks/{ticker_lower}/__data.json"
+SA_HISTORY_URL = ("https://stockanalysis.com/api/symbol/s/{ticker}/history"
+                  "?range=1Y&period=Daily")
 STOCKTWITS_SYMBOL_URL = "https://api.stocktwits.com/api/2/streams/symbol/{symbol}.json"
 STOCKTWITS_CREATE_URL = "https://api.stocktwits.com/api/2/messages/create.json"
 STOCKTWITS_USER_AGENT = "stocktwits-relative-strength-poster/1.0"
