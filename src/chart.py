@@ -7,7 +7,7 @@ daily history endpoint lags one session, so today's candle is appended from
 the live quote — a breakout post whose chart stopped yesterday would be
 missing its own move.
 """
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
 import matplotlib
@@ -41,6 +41,11 @@ def _fetch_history(ticker: str, today: date | None = None) -> list[list]:
                   key=lambda r: r[0])
     if not hist:
         raise ChartError(f"{ticker}: no daily history from stockanalysis")
+    cutoff = (today - timedelta(days=config.MIN_HISTORY_DAYS)).isoformat()
+    if hist[0][0] > cutoff:
+        raise ChartError(
+            f"{ticker}: history starts {hist[0][0]}, needs to reach back to "
+            f"{cutoff} — likely a recent IPO, 1Y chart would mislead")
     if hist[-1][0] < today.isoformat():
         q = (get_json(config.SA_QUOTE_URL.format(ticker=ticker)) or {}).get("data")
         if q and q.get("p") and q.get("o"):

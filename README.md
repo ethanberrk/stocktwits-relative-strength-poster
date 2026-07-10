@@ -24,7 +24,10 @@ WSJ new-52wk-highs feed → Yahoo v7 bulk quotes, falling back to
 stockanalysis.com when Yahoo 429s → Stocktwits watchers
 (`src/source/rs_source.py`) → filter >$1B + rank fewest-watched (`src/select.py`)
 → self-rendered 1-yr candlestick PNG from stockanalysis.com history
-(`src/chart.py`, matplotlib, TradingView-light styling) → publisher
+(`src/chart.py`, matplotlib, TradingView-light styling; a name whose
+history reaches back less than `MIN_HISTORY_DAYS` ≈ 11 months is skipped
+as a recent IPO — its "1Y" chart would mislead — and the next
+least-watched name takes the slot) → publisher
 (`src/publish/`) → `state/posted.json`.
 
 ## Run locally

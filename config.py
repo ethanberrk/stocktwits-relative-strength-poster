@@ -7,6 +7,9 @@ MIN_MARKET_CAP = 1_000_000_000          # USD floor (>= applied in source + sele
 MAX_PER_TICK = int(os.environ.get("MAX_PER_TICK", "2"))   # posts per 30-min tick
 MAX_PER_DAY = int(os.environ.get("MAX_PER_DAY", "20"))    # posts per trading day
 MAX_PLAUSIBLE_HIGHS = 500               # validation gate: more = broken feed
+MIN_HISTORY_DAYS = 330                  # skip recent IPOs: a "1Y" chart needs
+                                        # ~a year of candles (330 = slack for
+                                        # names barely a year old)
 
 MARKET_TZ = "America/New_York"
 MARKET_OPEN = (9, 30)                   # ET
