@@ -65,6 +65,12 @@
       "date": "2026-07-10",
       "post_id": null,
       "status": "posted"
+    },
+    {
+      "ticker": "PRVA",
+      "date": "2026-07-10",
+      "post_id": null,
+      "status": "posted"
     }
   ]
 }
