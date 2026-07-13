@@ -1,10 +1,13 @@
 # .github/workflows/tick.yml
 name: tick
 on:
-  schedule:
-    # Every 30 min, 13:00-21:59 UTC weekdays. Covers 9:30am-4pm ET in both
-    # EDT (13:30-20:00 UTC) and EST (14:30-21:00 UTC); run.py gates precisely.
-    - cron: "*/30 13-21 * * 1-5"
+  # Ticks are driven solely by the external cron-job.org job, which POSTs a
+  # workflow_dispatch on the :05/:35 slots, 13:00-21:59 UTC weekdays (see
+  # docs/cron-job-backup.md); run.py gates market hours precisely. GitHub's
+  # own `schedule` cron was removed 2026-07-13, mirroring the 52wk-poster:
+  # it delivered only ~3 of 18 slots and fired up to 45 min late, and in live
+  # mode a late fire lands in a different half-hour window than the dispatch,
+  # posting an extra ticker and exhausting the daily cap early.
   workflow_dispatch: {}
 
 permissions:
