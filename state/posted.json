@@ -137,6 +137,12 @@
       "date": "2026-07-13",
       "post_id": null,
       "status": "posted"
+    },
+    {
+      "ticker": "FR",
+      "date": "2026-07-13",
+      "post_id": null,
+      "status": "posted"
     }
   ]
 }
