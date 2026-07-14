@@ -233,6 +233,12 @@
       "date": "2026-07-14",
       "post_id": "659031348",
       "status": "posted"
+    },
+    {
+      "ticker": "HR",
+      "date": "2026-07-14",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
