@@ -203,6 +203,12 @@
       "date": "2026-07-14",
       "post_id": "659011134",
       "status": "posted"
+    },
+    {
+      "ticker": "VCTR",
+      "date": "2026-07-14",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
