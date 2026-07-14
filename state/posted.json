@@ -197,6 +197,12 @@
       "date": "2026-07-14",
       "post_id": "659006271",
       "status": "posted"
+    },
+    {
+      "ticker": "SCSC",
+      "date": "2026-07-14",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
