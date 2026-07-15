@@ -293,6 +293,12 @@
       "date": "2026-07-15",
       "post_id": "659136702",
       "status": "posted"
+    },
+    {
+      "ticker": "FR",
+      "date": "2026-07-15",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
