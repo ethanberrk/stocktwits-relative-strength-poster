@@ -275,6 +275,12 @@
       "date": "2026-07-15",
       "post_id": "659120739",
       "status": "posted"
+    },
+    {
+      "ticker": "NBTB",
+      "date": "2026-07-15",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
