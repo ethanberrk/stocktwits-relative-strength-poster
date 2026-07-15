@@ -257,6 +257,12 @@
       "date": "2026-07-15",
       "post_id": "659103146",
       "status": "posted"
+    },
+    {
+      "ticker": "CALY",
+      "date": "2026-07-15",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
