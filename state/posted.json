@@ -323,6 +323,12 @@
       "date": "2026-07-16",
       "post_id": "659212067",
       "status": "posted"
+    },
+    {
+      "ticker": "HFWA",
+      "date": "2026-07-16",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
