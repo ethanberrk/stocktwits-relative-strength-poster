@@ -335,6 +335,12 @@
       "date": "2026-07-16",
       "post_id": "659226099",
       "status": "posted"
+    },
+    {
+      "ticker": "UCB",
+      "date": "2026-07-16",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
