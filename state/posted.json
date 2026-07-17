@@ -431,6 +431,12 @@
       "date": "2026-07-17",
       "post_id": "659377992",
       "status": "posted"
+    },
+    {
+      "ticker": "BANR",
+      "date": "2026-07-17",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
