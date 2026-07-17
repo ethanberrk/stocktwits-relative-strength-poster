@@ -419,6 +419,12 @@
       "date": "2026-07-17",
       "post_id": "659369058",
       "status": "posted"
+    },
+    {
+      "ticker": "EQBK",
+      "date": "2026-07-17",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
