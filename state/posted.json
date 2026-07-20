@@ -485,6 +485,12 @@
       "date": "2026-07-20",
       "post_id": "659508401",
       "status": "posted"
+    },
+    {
+      "ticker": "CNXN",
+      "date": "2026-07-20",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
