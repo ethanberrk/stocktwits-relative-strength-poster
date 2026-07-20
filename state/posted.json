@@ -497,6 +497,12 @@
       "date": "2026-07-20",
       "post_id": "659515766",
       "status": "posted"
+    },
+    {
+      "ticker": "ZD",
+      "date": "2026-07-20",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
