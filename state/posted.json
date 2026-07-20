@@ -491,6 +491,12 @@
       "date": "2026-07-20",
       "post_id": "659512257",
       "status": "posted"
+    },
+    {
+      "ticker": "CVLG",
+      "date": "2026-07-20",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
