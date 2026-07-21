@@ -575,6 +575,12 @@
       "date": "2026-07-21",
       "post_id": "659618565",
       "status": "posted"
+    },
+    {
+      "ticker": "WERN",
+      "date": "2026-07-21",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
