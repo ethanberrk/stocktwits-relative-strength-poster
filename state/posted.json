@@ -653,6 +653,12 @@
       "date": "2026-07-22",
       "post_id": "659731005",
       "status": "posted"
+    },
+    {
+      "ticker": "GTY",
+      "date": "2026-07-22",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
