@@ -671,6 +671,12 @@
       "date": "2026-07-22",
       "post_id": "659743286",
       "status": "posted"
+    },
+    {
+      "ticker": "TIGO",
+      "date": "2026-07-22",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
