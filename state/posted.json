@@ -719,6 +719,12 @@
       "date": "2026-07-23",
       "post_id": "659846783",
       "status": "posted"
+    },
+    {
+      "ticker": "GEF",
+      "date": "2026-07-23",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
