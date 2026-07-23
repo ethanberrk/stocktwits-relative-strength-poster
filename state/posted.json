@@ -695,6 +695,12 @@
       "date": "2026-07-23",
       "post_id": "659826726",
       "status": "posted"
+    },
+    {
+      "ticker": "FTRE",
+      "date": "2026-07-23",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
