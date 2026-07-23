@@ -725,6 +725,12 @@
       "date": "2026-07-23",
       "post_id": "659850881",
       "status": "posted"
+    },
+    {
+      "ticker": "AIT",
+      "date": "2026-07-23",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
