@@ -857,6 +857,12 @@
       "date": "2026-07-27",
       "post_id": "660103341",
       "status": "posted"
+    },
+    {
+      "ticker": "CDP",
+      "date": "2026-07-27",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
