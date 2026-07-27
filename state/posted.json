@@ -845,6 +845,12 @@
       "date": "2026-07-27",
       "post_id": "660094623",
       "status": "posted"
+    },
+    {
+      "ticker": "AMAL",
+      "date": "2026-07-27",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
