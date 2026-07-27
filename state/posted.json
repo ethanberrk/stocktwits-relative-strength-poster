@@ -869,6 +869,12 @@
       "date": "2026-07-27",
       "post_id": "660111269",
       "status": "posted"
+    },
+    {
+      "ticker": "WSBC",
+      "date": "2026-07-27",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
