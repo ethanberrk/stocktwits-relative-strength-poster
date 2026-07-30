@@ -1037,6 +1037,12 @@
       "date": "2026-07-29",
       "post_id": "660364445",
       "status": "posted"
+    },
+    {
+      "ticker": "CCNE",
+      "date": "2026-07-30",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
