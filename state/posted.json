@@ -1223,6 +1223,12 @@
       "date": "2026-08-03",
       "post_id": "660763908",
       "status": "posted"
+    },
+    {
+      "ticker": "CPF",
+      "date": "2026-08-03",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
