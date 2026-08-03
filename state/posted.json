@@ -1187,6 +1187,12 @@
       "date": "2026-08-03",
       "post_id": "660734443",
       "status": "posted"
+    },
+    {
+      "ticker": "BHRB",
+      "date": "2026-08-03",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
