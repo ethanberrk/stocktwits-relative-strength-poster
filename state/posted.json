@@ -1229,6 +1229,12 @@
       "date": "2026-08-03",
       "post_id": "660767798",
       "status": "posted"
+    },
+    {
+      "ticker": "TRMK",
+      "date": "2026-08-03",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
