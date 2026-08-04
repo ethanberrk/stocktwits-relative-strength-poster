@@ -1283,6 +1283,12 @@
       "date": "2026-08-04",
       "post_id": "660869940",
       "status": "posted"
+    },
+    {
+      "ticker": "ZD",
+      "date": "2026-08-04",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
