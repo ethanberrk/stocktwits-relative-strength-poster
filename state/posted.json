@@ -1325,6 +1325,12 @@
       "date": "2026-08-04",
       "post_id": "660904049",
       "status": "posted"
+    },
+    {
+      "ticker": "AAMI",
+      "date": "2026-08-05",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
