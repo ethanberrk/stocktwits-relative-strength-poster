@@ -1349,6 +1349,12 @@
       "date": "2026-08-05",
       "post_id": "661003896",
       "status": "posted"
+    },
+    {
+      "ticker": "GIC",
+      "date": "2026-08-05",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
