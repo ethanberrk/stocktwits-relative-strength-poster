@@ -1343,6 +1343,12 @@
       "date": "2026-08-05",
       "post_id": "660998369",
       "status": "posted"
+    },
+    {
+      "ticker": "DSGR",
+      "date": "2026-08-05",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
