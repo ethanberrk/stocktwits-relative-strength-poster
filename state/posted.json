@@ -1403,6 +1403,12 @@
       "date": "2026-08-06",
       "post_id": "661118606",
       "status": "posted"
+    },
+    {
+      "ticker": "RBCAA",
+      "date": "2026-08-06",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
