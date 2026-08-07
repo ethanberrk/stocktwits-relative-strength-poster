@@ -1523,6 +1523,12 @@
       "date": "2026-08-07",
       "post_id": "661290815",
       "status": "posted"
+    },
+    {
+      "ticker": "FTDR",
+      "date": "2026-08-07",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
