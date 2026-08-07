@@ -1529,6 +1529,12 @@
       "date": "2026-08-07",
       "post_id": "661294870",
       "status": "posted"
+    },
+    {
+      "ticker": "GDV",
+      "date": "2026-08-07",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
