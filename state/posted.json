@@ -1721,6 +1721,12 @@
       "date": "2026-08-12",
       "post_id": "661671940",
       "status": "posted"
+    },
+    {
+      "ticker": "ASB",
+      "date": "2026-08-12",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
