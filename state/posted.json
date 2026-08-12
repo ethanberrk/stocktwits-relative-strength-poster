@@ -1727,6 +1727,12 @@
       "date": "2026-08-12",
       "post_id": "661676350",
       "status": "posted"
+    },
+    {
+      "ticker": "SBCF",
+      "date": "2026-08-12",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
