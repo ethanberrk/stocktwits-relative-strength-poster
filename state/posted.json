@@ -1703,6 +1703,12 @@
       "date": "2026-08-12",
       "post_id": "661656164",
       "status": "posted"
+    },
+    {
+      "ticker": "RVT",
+      "date": "2026-08-12",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
