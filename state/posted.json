@@ -1805,6 +1805,12 @@
       "date": "2026-08-13",
       "post_id": "661807526",
       "status": "posted"
+    },
+    {
+      "ticker": "CLBK",
+      "date": "2026-08-13",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
