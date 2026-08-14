@@ -1859,6 +1859,12 @@
       "date": "2026-08-14",
       "post_id": "661919289",
       "status": "posted"
+    },
+    {
+      "ticker": "FBNC",
+      "date": "2026-08-14",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
