@@ -1877,6 +1877,12 @@
       "date": "2026-08-14",
       "post_id": "661932740",
       "status": "posted"
+    },
+    {
+      "ticker": "XPRO",
+      "date": "2026-08-14",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
