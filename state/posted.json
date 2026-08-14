@@ -1865,6 +1865,12 @@
       "date": "2026-08-14",
       "post_id": "661924011",
       "status": "posted"
+    },
+    {
+      "ticker": "LLYVA",
+      "date": "2026-08-14",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
