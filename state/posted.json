@@ -1937,6 +1937,12 @@
       "date": "2026-08-17",
       "post_id": "662084939",
       "status": "posted"
+    },
+    {
+      "ticker": "EBC",
+      "date": "2026-08-17",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
