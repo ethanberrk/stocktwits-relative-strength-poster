@@ -1907,6 +1907,12 @@
       "date": "2026-08-17",
       "post_id": "662052236",
       "status": "posted"
+    },
+    {
+      "ticker": "OSBC",
+      "date": "2026-08-17",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
