@@ -1913,6 +1913,12 @@
       "date": "2026-08-17",
       "post_id": "662058099",
       "status": "posted"
+    },
+    {
+      "ticker": "BANR",
+      "date": "2026-08-17",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
