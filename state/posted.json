@@ -2021,6 +2021,12 @@
       "date": "2026-08-18",
       "post_id": "662199839",
       "status": "posted"
+    },
+    {
+      "ticker": "JLL",
+      "date": "2026-08-18",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
