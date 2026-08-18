@@ -2015,6 +2015,12 @@
       "date": "2026-08-18",
       "post_id": "662195874",
       "status": "posted"
+    },
+    {
+      "ticker": "HAE",
+      "date": "2026-08-18",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
