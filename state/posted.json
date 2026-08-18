@@ -2009,6 +2009,12 @@
       "date": "2026-08-18",
       "post_id": "662191970",
       "status": "posted"
+    },
+    {
+      "ticker": "ESNT",
+      "date": "2026-08-18",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
