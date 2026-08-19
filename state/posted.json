@@ -2081,6 +2081,12 @@
       "date": "2026-08-19",
       "post_id": "662311953",
       "status": "posted"
+    },
+    {
+      "ticker": "WHD",
+      "date": "2026-08-19",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
