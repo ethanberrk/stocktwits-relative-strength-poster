@@ -2075,6 +2075,12 @@
       "date": "2026-08-19",
       "post_id": "662307518",
       "status": "posted"
+    },
+    {
+      "ticker": "CGAU",
+      "date": "2026-08-19",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
