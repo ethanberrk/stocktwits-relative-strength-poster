@@ -2069,6 +2069,12 @@
       "date": "2026-08-19",
       "post_id": "662302314",
       "status": "posted"
+    },
+    {
+      "ticker": "BWLP",
+      "date": "2026-08-19",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
