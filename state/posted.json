@@ -2045,6 +2045,12 @@
       "date": "2026-08-19",
       "post_id": "662278308",
       "status": "posted"
+    },
+    {
+      "ticker": "SENEA",
+      "date": "2026-08-19",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
