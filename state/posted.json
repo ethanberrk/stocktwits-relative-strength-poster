@@ -2111,6 +2111,12 @@
       "date": "2026-08-20",
       "post_id": "662407123",
       "status": "posted"
+    },
+    {
+      "ticker": "SCSC",
+      "date": "2026-08-20",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
