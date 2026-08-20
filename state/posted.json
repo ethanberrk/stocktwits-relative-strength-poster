@@ -2171,6 +2171,12 @@
       "date": "2026-08-20",
       "post_id": "662455618",
       "status": "posted"
+    },
+    {
+      "ticker": "LFST",
+      "date": "2026-08-20",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
