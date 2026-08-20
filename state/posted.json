@@ -2123,6 +2123,12 @@
       "date": "2026-08-20",
       "post_id": "662419453",
       "status": "posted"
+    },
+    {
+      "ticker": "SEIC",
+      "date": "2026-08-20",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
