@@ -2159,6 +2159,12 @@
       "date": "2026-08-20",
       "post_id": "662447194",
       "status": "posted"
+    },
+    {
+      "ticker": "CHRD",
+      "date": "2026-08-20",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
