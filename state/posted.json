@@ -2141,6 +2141,12 @@
       "date": "2026-08-20",
       "post_id": "662433910",
       "status": "posted"
+    },
+    {
+      "ticker": "UGP",
+      "date": "2026-08-20",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
