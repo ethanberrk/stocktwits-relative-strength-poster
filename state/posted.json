@@ -2135,6 +2135,12 @@
       "date": "2026-08-20",
       "post_id": "662429619",
       "status": "posted"
+    },
+    {
+      "ticker": "HTFL",
+      "date": "2026-08-20",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
