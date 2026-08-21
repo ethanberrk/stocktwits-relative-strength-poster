@@ -2189,6 +2189,12 @@
       "date": "2026-08-21",
       "post_id": "662522644",
       "status": "posted"
+    },
+    {
+      "ticker": "SLDE",
+      "date": "2026-08-21",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
