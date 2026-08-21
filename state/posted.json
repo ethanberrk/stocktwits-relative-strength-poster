@@ -2213,6 +2213,12 @@
       "date": "2026-08-21",
       "post_id": "662545341",
       "status": "posted"
+    },
+    {
+      "ticker": "ASIC",
+      "date": "2026-08-21",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
