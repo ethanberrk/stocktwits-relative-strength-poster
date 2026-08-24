@@ -2297,6 +2297,12 @@
       "date": "2026-08-24",
       "post_id": "662714231",
       "status": "posted"
+    },
+    {
+      "ticker": "MAN",
+      "date": "2026-08-24",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
