@@ -2387,6 +2387,12 @@
       "date": "2026-08-25",
       "post_id": "662820778",
       "status": "posted"
+    },
+    {
+      "ticker": "KOF",
+      "date": "2026-08-25",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
