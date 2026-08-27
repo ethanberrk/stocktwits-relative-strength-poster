@@ -2501,6 +2501,12 @@
       "date": "2026-08-27",
       "post_id": "663022645",
       "status": "posted"
+    },
+    {
+      "ticker": "MANH",
+      "date": "2026-08-27",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
