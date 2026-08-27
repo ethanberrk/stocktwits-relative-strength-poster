@@ -2489,6 +2489,12 @@
       "date": "2026-08-27",
       "post_id": "663013939",
       "status": "posted"
+    },
+    {
+      "ticker": "RVTY",
+      "date": "2026-08-27",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
