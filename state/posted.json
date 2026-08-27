@@ -2519,6 +2519,12 @@
       "date": "2026-08-27",
       "post_id": "663038908",
       "status": "posted"
+    },
+    {
+      "ticker": "SAFT",
+      "date": "2026-08-27",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
