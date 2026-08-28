@@ -2591,6 +2591,12 @@
       "date": "2026-08-28",
       "post_id": "663140455",
       "status": "posted"
+    },
+    {
+      "ticker": "MAN",
+      "date": "2026-08-28",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
