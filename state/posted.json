@@ -2543,6 +2543,12 @@
       "date": "2026-08-28",
       "post_id": "663107147",
       "status": "posted"
+    },
+    {
+      "ticker": "NIQ",
+      "date": "2026-08-28",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
