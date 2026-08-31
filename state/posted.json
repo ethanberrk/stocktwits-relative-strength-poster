@@ -2645,6 +2645,12 @@
       "date": "2026-08-31",
       "post_id": "663265778",
       "status": "posted"
+    },
+    {
+      "ticker": "CRNX",
+      "date": "2026-08-31",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
