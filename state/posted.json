@@ -2651,6 +2651,12 @@
       "date": "2026-08-31",
       "post_id": "663268712",
       "status": "posted"
+    },
+    {
+      "ticker": "CVI",
+      "date": "2026-08-31",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
