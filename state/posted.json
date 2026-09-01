@@ -2723,6 +2723,12 @@
       "date": "2026-09-01",
       "post_id": "663360003",
       "status": "posted"
+    },
+    {
+      "ticker": "EQNR",
+      "date": "2026-09-01",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
