@@ -2735,6 +2735,12 @@
       "date": "2026-09-01",
       "post_id": "663366781",
       "status": "posted"
+    },
+    {
+      "ticker": "PLSE",
+      "date": "2026-09-01",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
