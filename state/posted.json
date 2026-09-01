@@ -2681,6 +2681,12 @@
       "date": "2026-09-01",
       "post_id": "663332038",
       "status": "posted"
+    },
+    {
+      "ticker": "SOBO",
+      "date": "2026-09-01",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
