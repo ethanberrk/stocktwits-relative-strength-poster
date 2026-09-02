@@ -2747,6 +2747,12 @@
       "date": "2026-09-02",
       "post_id": "663423095",
       "status": "posted"
+    },
+    {
+      "ticker": "KB",
+      "date": "2026-09-02",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
