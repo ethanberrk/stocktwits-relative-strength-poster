@@ -74,3 +74,34 @@ def test_tick_backfills_when_top_pick_chart_fails(tmp_path, monkeypatch):
                     chart_fetch=chart_fetch, state_path=sp, now_utc=now)
     assert done == ["MID"]  # backfilled past the un-chartable fewest-watched name
     assert pub.posted == [("MID", "$MID undiscovered breakout with 50 watchers")]
+
+
+# --- data-source switch + shadow dump ----------------------------------------
+
+def test_build_source_follows_switch(monkeypatch):
+    import config
+    from src.source.rs_source import RSSource
+    from src.source.xignite_source import XigniteSource
+    monkeypatch.setattr(config, "DATA_SOURCE", "legacy")
+    assert isinstance(run.build_source(), RSSource)
+    monkeypatch.setattr(config, "DATA_SOURCE", "xignite")
+    assert isinstance(run.build_source(), XigniteSource)
+    assert isinstance(run.build_source("legacy"), RSSource)
+
+
+def test_build_source_unknown_is_hard_error():
+    import pytest
+    with pytest.raises(SystemExit):
+        run.build_source("yahoo-please")
+
+
+def test_tick_dumps_candidates_for_shadow(tmp_path):
+    import json
+    now = datetime(2026, 7, 1, 14, 0, tzinfo=timezone.utc)
+    dump = tmp_path / "shadow" / "2026-07-01" / "1400.active.json"
+    run.tick(FakeSource([_c("BIG", watchers=9), _c("SM", watchers=2)]), FakePublisher(),
+             lambda c: b"PNG", tmp_path / "p.json", now, dump_to=dump)
+    d = json.loads(dump.read_text())
+    assert sorted(c["ticker"] for c in d["candidates"]) == ["BIG", "SM"]
+    assert {c["ticker"]: c["watchers"] for c in d["candidates"]} == {"BIG": 9, "SM": 2}
+    assert d["time"].startswith("2026-07-01T14:00")

@@ -71,6 +71,25 @@ def _build_candidate(ticker: str, name: str, quote: dict,
     )
 
 
+def fetch_watchers(tickers: list[str]) -> dict:
+    """Stocktwits watcher count + exchange per ticker from the public streams
+    endpoint (8 threads). Shared by the legacy and Xignite sources — the
+    ranking axis does not depend on the price feed. Cashtag form (BRK.B)."""
+    from src.stocktwits import st_symbol
+
+    def one(tk):
+        d = get_json(config.STOCKTWITS_SYMBOL_URL.format(symbol=st_symbol(tk)))
+        sym = (d or {}).get("symbol") or {}
+        return tk, ({"watchlist_count": sym.get("watchlist_count"),
+                     "exchange": sym.get("exchange")} if sym else {})
+    out = {}
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        for fut in as_completed([ex.submit(one, t) for t in tickers]):
+            tk, info = fut.result()
+            out[tk] = info
+    return out
+
+
 class RSSource(HighsSource):
     def _wsj_universe(self) -> list[tuple[str, str]]:
         d = get_json(config.WSJ_MDC_URL)
@@ -148,17 +167,7 @@ class RSSource(HighsSource):
         return out
 
     def _watchers(self, tickers: list[str]) -> dict:
-        def one(tk):
-            d = get_json(config.STOCKTWITS_SYMBOL_URL.format(symbol=tk))
-            sym = (d or {}).get("symbol") or {}
-            return tk, ({"watchlist_count": sym.get("watchlist_count"),
-                         "exchange": sym.get("exchange")} if sym else {})
-        out = {}
-        with ThreadPoolExecutor(max_workers=8) as ex:
-            for fut in as_completed([ex.submit(one, t) for t in tickers]):
-                tk, info = fut.result()
-                out[tk] = info
-        return out
+        return fetch_watchers(tickers)
 
     def fetch_candidates(self) -> list[Candidate]:
         pairs = self._wsj_universe()
