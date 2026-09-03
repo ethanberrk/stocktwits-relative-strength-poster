@@ -2879,6 +2879,12 @@
       "date": "2026-09-03",
       "post_id": "663572919",
       "status": "posted"
+    },
+    {
+      "ticker": "PFG",
+      "date": "2026-09-03",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
