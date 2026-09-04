@@ -1,0 +1,28 @@
+{
+ "time": "2026-09-04T14:05:45+00:00",
+ "active": "legacy",
+ "shadow": "xignite",
+ "counts": {
+  "active": 29,
+  "shadow": 30,
+  "both": 28
+ },
+ "only_in_active": [
+  "TRMD"
+ ],
+ "only_in_shadow": [
+  "PAYO",
+  "TK"
+ ],
+ "would_pick": {
+  "legacy": [
+   "ITGR",
+   "SLAB"
+  ],
+  "xignite": [
+   "ITGR",
+   "SLAB"
+  ]
+ },
+ "picks_agree": true
+}
