@@ -1,0 +1,29 @@
+{
+ "time": "2026-09-04T19:05:50+00:00",
+ "active": "legacy",
+ "shadow": "xignite",
+ "counts": {
+  "active": 44,
+  "shadow": 44,
+  "both": 42
+ },
+ "only_in_active": [
+  "NMM",
+  "NX"
+ ],
+ "only_in_shadow": [
+  "PAYO",
+  "TK"
+ ],
+ "would_pick": {
+  "legacy": [
+   "LCLN",
+   "ATTO"
+  ],
+  "xignite": [
+   "LCLN",
+   "ATTO"
+  ]
+ },
+ "picks_agree": true
+}
