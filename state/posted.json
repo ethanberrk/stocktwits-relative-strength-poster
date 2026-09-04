@@ -2891,6 +2891,12 @@
       "date": "2026-09-04",
       "post_id": "663632649",
       "status": "posted"
+    },
+    {
+      "ticker": "CPAC",
+      "date": "2026-09-04",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
