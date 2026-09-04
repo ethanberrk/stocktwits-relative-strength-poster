@@ -2921,6 +2921,12 @@
       "date": "2026-09-04",
       "post_id": "663655831",
       "status": "posted"
+    },
+    {
+      "ticker": "CRBG",
+      "date": "2026-09-04",
+      "post_id": null,
+      "status": "pending"
     }
   ]
 }
